@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: debezium-route-cm
+data:
+  kafka.brokers: my-cluster-kafka-bootstrap:9092
+  kafka.groupid: DebeziumCamelK
+  kafka.topic: dbserver1.coffeeshop.orders
+  kafka.uri: '{{kafka.topic}}?brokers={{kafka.brokers}}&groupId={{kafka.groupid}}'
