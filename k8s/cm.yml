@@ -5,5 +5,8 @@ metadata:
 data:
   kafka.brokers: my-cluster-kafka-bootstrap:9092
   kafka.groupid: DebeziumCamelK
-  kafka.topic: dbserver1.coffeeshop.orders
-  kafka.uri: '{{kafka.topic}}?brokers={{kafka.brokers}}&groupId={{kafka.groupid}}'
+  kafka.consumer.topic: dbserver1.coffeeshop.orders
+  kafka.consumer.uri: '{{kafka.consumer.topic}}?brokers={{kafka.brokers}}&groupId={{kafka.groupid}}'
+  kafka.producer.clientid: route-producer
+  kafka.producer.topic: clean_table.orders
+  kafka.producer.uri: '{{kafka.producer.topic}}?brokers={{kafka.brokers}}&clientId={{kafka.producer.clientid}}'
